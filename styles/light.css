@@ -1,12 +1,20 @@
-/*
-  Специально для светлой темы при наличии класса.
-  Здесь окажутся стили, которые нужно переопределить принудительно,
-  переключая тему
-*/
-
 .page.theme_light {
-  /* сохраните этот селектор в приведённом виде.
-    Так стили написанные ниже будут иметь больший вес,
-    чем стили в медиазапросе предпочтений пользователя
-  */
+  --accent-color: #ff8dcb;
+  --decorative-corner-color: #353430;
+  --header-menu-color: #353430;
+  --header-menu-color-rgb: 53, 52, 48;
+  --heading-color: #ffc2e6;
+  --heading-back-color: #ff0070;
+  --link-back-color: #ff8dcb;
+  --invered-text-color: #353430;
+  --background-image: url(../images/cover-image-light.png);
+  --main-text-color: #353430;
+  --section-header-text-color: #353430;
+  --theme: light;
+}
+
+@container root style(--theme: light) {
+  .decorative-record {
+    display: none;
+  }
 }

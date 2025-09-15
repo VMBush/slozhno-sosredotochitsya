@@ -1,5 +1,350 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  container-name: root;
+  container-type: normal;
+
+  font-family: IBM Plex Mono;
+  color: var(--main-text-color);
+  font-size: 18px;
+  line-height: 23.4px;
+
+  margin: 0;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: var(--background-image);
+  padding: var(--base-padding);
+  /* box-sizing: border-box; */
+  /* padding-inline-end: var(--base-padding); */
+}
+
+.link {
+  color: var(--main-text-color);
+  text-decoration: none;
+  text-shadow: 2px 2px var(--link-back-color);
+}
+
+.link:hover {
+  border-bottom: 1px solid var(--main-text-color);
+}
+
+.link:focus-visible {
+  border: 1px solid var(--main-text-color);
+}
+
+.header {
+  min-height: calc(100dvh - 2 * var(--base-padding));
+  /* background-color: black; */
+  position: relative;
+  /* padding-top: var(--base-padding);
+  padding-bottom: var(--base-padding); */
+  box-sizing: border-box;
+  display: grid;
+  align-items: center;
+  grid-template-rows: 1fr minmax(min-content, max-content) 1fr;
+}
+
+.decorated-zone::before {
+  border-top: 1px solid var(--decorative-corner-color);
+  border-right: 1px solid var(--decorative-corner-color);
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  content: "";
+  inset-block-start: 0;
+  inset-inline-end: 0;
+}
+
+.decorated-zone::after {
+  border-block-end: 1px solid var(--decorative-corner-color);
+  border-inline-start: 1px solid var(--decorative-corner-color);
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  content: "";
+  inset-block-end: 0;
+  inset-inline-start: 0;
+}
+
+.decorative-record {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  font-size: 18px;
+}
+
+.decorative-record::after {
+  content: "";
+  box-shadow: 0px 0px 4px 2px #ff0070;
+  width: 9px;
+  height: 9px;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  vertical-align: 2px;
+  margin: 0 9px;
+}
+
+.header__theme-menu {
+  color: var(--header-menu-color);
+}
+
+.header__theme-menu-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  gap: 15px;
+}
+
+.header__theme-menu-item {
+  text-align: center;
+}
+
+.header__theme-menu-button {
+  all: unset;
+  text-transform: lowercase;
+  width: 70px;
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid var(--header-menu-color);
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid rgba(var(--header-menu-color-rgb), 0.4);
+}
+
+.header__theme-menu-button:focus {
+  border: none;
+  border-bottom: 1px solid var(--header-menu-color);
+}
+
+.main__title {
+  font-size: var(--header-title-size);
+  line-height: 83%;
+  margin: 0;
+}
+
+.header__title {
+  text-shadow: 4px 4px var(--heading-back-color);
+}
+
+.title-decor {
+  color: var(--heading-color);
+}
+
+.header__subtitle {
+  justify-self: end;
+  max-width: 50%;
+  min-width: 355px;
+}
+
+.inverted {
+  color: var(--invered-text-color);
+  background-color: var(--accent-color);
+  font-weight: bold;
+}
+
+.main-content {
+  display: grid;
+  column-gap: 20px;
+}
+
+.section-header {
+  margin: 0;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: var(--section-header-text-color);
+}
+
+.section-content-wide {
+  grid-column: 1 / -1;
+  display: grid;
+  column-gap: 20px;
+}
+
+.topic-header {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.topic-header-extra-margin {
+  margin-bottom: 20px;
+}
+
+.content-text {
+  color: var(--main-text-color);
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.weight-normal {
+  font-weight: normal;
+}
+
+.gallery {
+  display: grid;
+  width: 100%;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+.footer {
+  min-height: calc(100dvh - 2 * var(--base-padding));
+  position: relative;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas: ". content .";
+  align-items: center;
+}
+
+.footer__title {
+  grid-area: content;
+  text-shadow: 2px 2px var(--heading-back-color);
+}
+
+@media (width <= 760px) {
+  .page {
+    --base-padding: 10px;
+  }
+
+  .header {
+    margin-bottom: 50px;
+  }
+
+  .main__title {
+    --header-title-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  }
+
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+
+  .section-content {
+    grid-column: 1 / 2;
+    margin-bottom: 50px;
+  }
+
+  .section-content-wide {
+    margin-bottom: 50px;
+  }
+
+  .gallery {
+    gap: 10px;
+    margin-bottom: 50px;
+  }
+
+  .gallery-header {
+    margin-bottom: 10px;
+  }
+
+  .gallery-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (width > 760px) {
+  .page {
+    --base-padding: 20px;
+  }
+
+  .header {
+    margin-bottom: 80px;
+  }
+
+  .header__title {
+    transform: translateX(calc(-1 * var(--base-padding)));
+  }
+
+  .main__title {
+    --header-title-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .main-content {
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .section-content {
+    grid-column: 2 / -1;
+    margin-bottom: 80px;
+  }
+
+  .section-content-wide {
+    margin-bottom: 80px;
+  }
+
+  .gallery {
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "a a b"
+      "c d b"
+      "c e e";
+    margin-bottom: 80px;
+  }
+
+  .gallery-image-a {
+    grid-area: a;
+  }
+
+  .gallery-image-b {
+    grid-area: b;
+  }
+
+  .gallery-image-c {
+    grid-area: c;
+  }
+
+  .gallery-image-d {
+    grid-area: d;
+  }
+
+  .gallery-image-e {
+    grid-area: e;
+  }
+}
+
+@media (width <= 1000px) {
+  .header__theme-menu {
+    justify-self: end;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: column;
+  }
+}
+
+@media (width > 1000px) {
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+  }
+
+  .main-content {
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-columns: 1fr 2fr; */
+  }
+
+  .section-content-wide {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

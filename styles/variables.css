@@ -1,4 +1,14 @@
-/*
-  Переменные для вашего проекта
-  и их переопределение под различные устройства
-*/
+.page {
+  --accent-color: #ff0070;
+  --decorative-corner-color: #ff0070;
+  --header-menu-color: #ff0070;
+  --header-menu-color-rgb: 255, 0, 112;
+  --heading-color: #DB00FF;
+  --heading-back-color: #ff0070;
+  --link-back-color: #ff0070;
+  --invered-text-color: #000028;
+  --background-image: url(../images/cover-image-dark.png);
+  --main-text-color: #F1B2CE;
+  --section-header-text-color: #ff0070;
+  --content-columns-gap: 20px;
+}
