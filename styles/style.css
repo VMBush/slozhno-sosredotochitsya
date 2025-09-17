@@ -1,4 +1,8 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+.html {
+  display: flex;
+  justify-content: center;
+}
 
 .page {
   container-name: root;
